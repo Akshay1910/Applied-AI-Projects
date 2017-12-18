@@ -1,0 +1,770 @@
+// ~->[DNET-1]->~
+
+// File created by GmytrasiewiczP at UIC using Netica 3.27 on Nov 09, 2017 at 22:42:13.
+
+bnet deadlock {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1510288784;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (182, 180, 1336, 625);
+	resolution = 72;
+	magnification = 0.426255;
+	drawingbounds = (16062, 7595);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node DDT {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.8,         0.2);
+	whenchanged = 1510287147;
+	belief = (0.8, 0.2);
+	visual V1 {
+		center = (156, 96);
+		height = 22;
+		};
+	};
+
+node Glyphosate {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.57,        0.43);
+	whenchanged = 1510287141;
+	belief = (0.57, 0.43);
+	visual V1 {
+		center = (408, 84);
+		height = 21;
+		};
+	};
+
+node Pesticides {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = (DDT, Glyphosate);
+	probs = 
+		// Exposed      NotExposed      // DDT        Glyphosate 
+		(((1,           0),             // Exposed    Exposed    
+		  (0.5,         0.5)),          // Exposed    NotExposed 
+		 ((0.35,        0.65),          // NotExposed Exposed    
+		  (0,           1)));           // NotExposed NotExposed ;
+	whenchanged = 1509072192;
+	belief = (0.6679, 0.3321);
+	visual V1 {
+		center = (342, 204);
+		height = 2;
+		};
+	};
+
+node Aspartame {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.5,         0.5);
+	whenchanged = 1509068953;
+	belief = (0.5, 0.5);
+	visual V1 {
+		center = (324, 294);
+		height = 3;
+		};
+	};
+
+node Diacetyl {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.55,        0.45);
+	whenchanged = 1510287150;
+	belief = (0.55, 0.45);
+	visual V1 {
+		center = (102, 348);
+		height = 4;
+		};
+	};
+
+node Advanced_Glycation_End_Product {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.5,         0.5);
+	whenchanged = 1509063075;
+	belief = (0.5, 0.5);
+	visual V1 {
+		center = (198, 456);
+		height = 23;
+		};
+	};
+
+node Lead {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.6,         0.4);
+	whenchanged = 1510287128;
+	belief = (0.6, 0.4);
+	visual V1 {
+		center = (1002, 144);
+		height = 17;
+		};
+	};
+
+node Aluminum {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.6,         0.4);
+	whenchanged = 1510287132;
+	belief = (0.6, 0.4);
+	visual V1 {
+		center = (876, 48);
+		height = 18;
+		};
+	};
+
+node Flouride {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.6,         0.4);
+	whenchanged = 1510287138;
+	belief = (0.6, 0.4);
+	visual V1 {
+		center = (654, 60);
+		height = 19;
+		};
+	};
+
+node Mercury {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = ();
+	probs = 
+		// Exposed      NotExposed   
+		  (0.55,        0.45);
+	whenchanged = 1510287135;
+	belief = (0.55, 0.45);
+	visual V1 {
+		center = (612, 186);
+		height = 20;
+		};
+	};
+
+node Heavy_Metals {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Exposed, NotExposed);
+	parents = (Lead, Aluminum, Flouride, Mercury);
+	probs = 
+		//   Exposed      NotExposed        // Lead       Aluminum   Flouride   Mercury    
+		(((((1,           0),               // Exposed    Exposed    Exposed    Exposed    
+		    (0.8,         0.2)),            // Exposed    Exposed    Exposed    NotExposed 
+		   ((0.75,        0.25),            // Exposed    Exposed    NotExposed Exposed    
+		    (0.6,         0.4))),           // Exposed    Exposed    NotExposed NotExposed 
+		  (((0.7,         0.3),             // Exposed    NotExposed Exposed    Exposed    
+		    (0.55,        0.45)),           // Exposed    NotExposed Exposed    NotExposed 
+		   ((0.5,         0.5),             // Exposed    NotExposed NotExposed Exposed    
+		    (0.4,         0.6)))),          // Exposed    NotExposed NotExposed NotExposed 
+		 ((((0.6,         0.4),             // NotExposed Exposed    Exposed    Exposed    
+		    (0.45,        0.55)),           // NotExposed Exposed    Exposed    NotExposed 
+		   ((0.35,        0.65),            // NotExposed Exposed    NotExposed Exposed    
+		    (0.2,         0.8))),           // NotExposed Exposed    NotExposed NotExposed 
+		  (((0.35,        0.65),            // NotExposed NotExposed Exposed    Exposed    
+		    (0.15,        0.85)),           // NotExposed NotExposed Exposed    NotExposed 
+		   ((0.2,         0.8),             // NotExposed NotExposed NotExposed Exposed    
+		    (0,           1)))));           // NotExposed NotExposed NotExposed NotExposed ;
+	whenchanged = 1509072310;
+	belief = (0.5654, 0.4346);
+	visual V1 {
+		center = (876, 282);
+		height = 16;
+		};
+	};
+
+node Exposure {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (High, Low, Medium);
+	parents = (Aspartame, Diacetyl, Advanced_Glycation_End_Product, Pesticides, Heavy_Metals);
+	functable = 
+		                        // Aspartame  Diacetyl   Advanced_Glycation_End_Product Pesticides Heavy_Metals 
+		(((((High,                // Exposed    Exposed    Exposed                        Exposed    Exposed      
+		     High),               // Exposed    Exposed    Exposed                        Exposed    NotExposed   
+		    (High,                // Exposed    Exposed    Exposed                        NotExposed Exposed      
+		     High)),              // Exposed    Exposed    Exposed                        NotExposed NotExposed   
+		   ((High,                // Exposed    Exposed    NotExposed                     Exposed    Exposed      
+		     High),               // Exposed    Exposed    NotExposed                     Exposed    NotExposed   
+		    (High,                // Exposed    Exposed    NotExposed                     NotExposed Exposed      
+		     Medium))),           // Exposed    Exposed    NotExposed                     NotExposed NotExposed   
+		  (((High,                // Exposed    NotExposed Exposed                        Exposed    Exposed      
+		     High),               // Exposed    NotExposed Exposed                        Exposed    NotExposed   
+		    (High,                // Exposed    NotExposed Exposed                        NotExposed Exposed      
+		     Medium)),            // Exposed    NotExposed Exposed                        NotExposed NotExposed   
+		   ((High,                // Exposed    NotExposed NotExposed                     Exposed    Exposed      
+		     Medium),             // Exposed    NotExposed NotExposed                     Exposed    NotExposed   
+		    (Medium,              // Exposed    NotExposed NotExposed                     NotExposed Exposed      
+		     Low)))),             // Exposed    NotExposed NotExposed                     NotExposed NotExposed   
+		 ((((High,                // NotExposed Exposed    Exposed                        Exposed    Exposed      
+		     Medium),             // NotExposed Exposed    Exposed                        Exposed    NotExposed   
+		    (Medium,              // NotExposed Exposed    Exposed                        NotExposed Exposed      
+		     Medium)),            // NotExposed Exposed    Exposed                        NotExposed NotExposed   
+		   ((High,                // NotExposed Exposed    NotExposed                     Exposed    Exposed      
+		     Medium),             // NotExposed Exposed    NotExposed                     Exposed    NotExposed   
+		    (Medium,              // NotExposed Exposed    NotExposed                     NotExposed Exposed      
+		     Low))),              // NotExposed Exposed    NotExposed                     NotExposed NotExposed   
+		  (((High,                // NotExposed NotExposed Exposed                        Exposed    Exposed      
+		     Medium),             // NotExposed NotExposed Exposed                        Exposed    NotExposed   
+		    (Medium,              // NotExposed NotExposed Exposed                        NotExposed Exposed      
+		     Low)),               // NotExposed NotExposed Exposed                        NotExposed NotExposed   
+		   ((Medium,              // NotExposed NotExposed NotExposed                     Exposed    Exposed      
+		     Low),                // NotExposed NotExposed NotExposed                     Exposed    NotExposed   
+		    (Low,                 // NotExposed NotExposed NotExposed                     NotExposed Exposed      
+		     Low)))));            // NotExposed NotExposed NotExposed                     NotExposed NotExposed   ;
+	comment = "This node describes whether the patient has been exposed to chemicals at his workplace or \
+		everyday life. ";
+	whenchanged = 1510287125;
+	belief = (0.5402326, 0.1223364, 0.337431);
+	visual V1 {
+		center = (624, 354);
+		height = 1;
+		};
+	};
+
+node Age {
+	kind = NATURE;
+	discrete = FALSE;
+	chance = CHANCE;
+	levels = (30, 65, 90);
+	parents = ();
+	probs = 
+		// 30 to 65     65 to 90     
+		  (0.2,         0.8);
+	EqnDirty = TRUE;
+	whenchanged = 1509069826;
+	belief = (0.2, 0.8);
+	visual V1 {
+		center = (612, 504);
+		height = 30;
+		};
+	};
+
+node APP {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.35,        0.65);
+	whenchanged = 1509071379;
+	belief = (0.35, 0.65);
+	visual V1 {
+		center = (1512, 60);
+		height = 8;
+		};
+	};
+
+node Presenelin_1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.4,         0.6);
+	whenchanged = 1509071310;
+	belief = (0.4, 0.6);
+	visual V1 {
+		center = (1836, 102);
+		height = 7;
+		};
+	};
+
+node Presenelin_2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.25,        0.75);
+	whenchanged = 1509070134;
+	belief = (0.25, 0.75);
+	visual V1 {
+		center = (2022, 198);
+		height = 6;
+		};
+	};
+
+node APOE_e4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.4,         0.6);
+	whenchanged = 1509071375;
+	belief = (0.4, 0.6);
+	visual V1 {
+		center = (1248, 66);
+		height = 9;
+		};
+	};
+
+node First_Degree_Relative {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (HasAlzheimer, DoesNotHaveAlzheimer);
+	parents = ();
+	probs = 
+		// HasAlzheimer DoesNotHaveAlzhe 
+		  (0.55,        0.45);
+	whenchanged = 1510287115;
+	belief = (0.55, 0.45);
+	visual V1 {
+		center = (1668, 330);
+		height = 5;
+		};
+	};
+
+node Genetic_Mutations {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (Present, Absent);
+	parents = (APP, Presenelin_1, Presenelin_2, APOE_e4, First_Degree_Relative);
+	functable = 
+		                        // APP Presenelin_1 Presenelin_2 APOE_e4 First_Degree_Relative 
+		(((((Present,             // Yes Yes          Yes          Yes     HasAlzheimer          
+		     Present),            // Yes Yes          Yes          Yes     DoesNotHaveAlzhe      
+		    (Present,             // Yes Yes          Yes          No      HasAlzheimer          
+		     Present)),           // Yes Yes          Yes          No      DoesNotHaveAlzhe      
+		   ((Present,             // Yes Yes          No           Yes     HasAlzheimer          
+		     Present),            // Yes Yes          No           Yes     DoesNotHaveAlzhe      
+		    (Present,             // Yes Yes          No           No      HasAlzheimer          
+		     Present))),          // Yes Yes          No           No      DoesNotHaveAlzhe      
+		  (((Present,             // Yes No           Yes          Yes     HasAlzheimer          
+		     Present),            // Yes No           Yes          Yes     DoesNotHaveAlzhe      
+		    (Present,             // Yes No           Yes          No      HasAlzheimer          
+		     Present)),           // Yes No           Yes          No      DoesNotHaveAlzhe      
+		   ((Present,             // Yes No           No           Yes     HasAlzheimer          
+		     Present),            // Yes No           No           Yes     DoesNotHaveAlzhe      
+		    (Present,             // Yes No           No           No      HasAlzheimer          
+		     Present)))),         // Yes No           No           No      DoesNotHaveAlzhe      
+		 ((((Present,             // No  Yes          Yes          Yes     HasAlzheimer          
+		     Present),            // No  Yes          Yes          Yes     DoesNotHaveAlzhe      
+		    (Present,             // No  Yes          Yes          No      HasAlzheimer          
+		     Present)),           // No  Yes          Yes          No      DoesNotHaveAlzhe      
+		   ((Present,             // No  Yes          No           Yes     HasAlzheimer          
+		     Present),            // No  Yes          No           Yes     DoesNotHaveAlzhe      
+		    (Present,             // No  Yes          No           No      HasAlzheimer          
+		     Present))),          // No  Yes          No           No      DoesNotHaveAlzhe      
+		  (((Present,             // No  No           Yes          Yes     HasAlzheimer          
+		     Present),            // No  No           Yes          Yes     DoesNotHaveAlzhe      
+		    (Present,             // No  No           Yes          No      HasAlzheimer          
+		     Present)),           // No  No           Yes          No      DoesNotHaveAlzhe      
+		   ((Present,             // No  No           No           Yes     HasAlzheimer          
+		     Present),            // No  No           No           Yes     DoesNotHaveAlzhe      
+		    (Absent,              // No  No           No           No      HasAlzheimer          
+		     Absent)))));         // No  No           No           No      DoesNotHaveAlzhe      ;
+	whenchanged = 1509072351;
+	belief = (0.8245, 0.1755);
+	visual V1 {
+		center = (1368, 204);
+		height = 10;
+		};
+	};
+
+node Mild_Cognitive_Impairment {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.6,         0.4);
+	whenchanged = 1510287084;
+	belief = (0.6, 0.4);
+	visual V1 {
+		center = (1932, 420);
+		height = 11;
+		};
+	};
+
+node Cardiovascular_Disease {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.55,        0.45);
+	whenchanged = 1510287112;
+	belief = (0.55, 0.45);
+	visual V1 {
+		center = (1728, 558);
+		height = 12;
+		};
+	};
+
+node Traumatic_Brain_Injury {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = ();
+	probs = 
+		// Yes          No           
+		  (0.54,        0.46);
+	whenchanged = 1509070166;
+	belief = (0.54, 0.46);
+	visual V1 {
+		center = (1626, 666);
+		height = 13;
+		};
+	};
+
+node Contributing_Med_Conditions {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Present, Absent);
+	parents = (Mild_Cognitive_Impairment, Cardiovascular_Disease, Traumatic_Brain_Injury);
+	probs = 
+		//  Present      Absent           // Mild_Cognitive_Impairment Cardiovascular_Disease Traumatic_Brain_Injury 
+		((((0.62,        0.38),           // Yes                       Yes                    Yes                    
+		   (0.56,        0.44)),          // Yes                       Yes                    No                     
+		  ((0.56,        0.44),           // Yes                       No                     Yes                    
+		   (0.52,        0.48))),         // Yes                       No                     No                     
+		 (((0.56,        0.44),           // No                        Yes                    Yes                    
+		   (0.52,        0.48)),          // No                        Yes                    No                     
+		  ((0.52,        0.48),           // No                        No                     Yes                    
+		   (0.5,         0.5))));         // No                        No                     No                     ;
+	whenchanged = 1509068931;
+	belief = (0.55282, 0.44718);
+	visual V1 {
+		center = (1404, 480);
+		height = 14;
+		};
+	};
+
+node Alzheimer_s {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (Present, Absent);
+	parents = (Exposure, Age, Genetic_Mutations, Contributing_Med_Conditions);
+	functable = 
+		                       // Exposure Age      Genetic_Mutations Contributing_Med_Conditions 
+		((((Present,            // High     30 to 65 Present           Present                     
+		    Present),           // High     30 to 65 Present           Absent                      
+		   (Absent,             // High     30 to 65 Absent            Present                     
+		    Absent)),           // High     30 to 65 Absent            Absent                      
+		  ((Present,            // High     65 to 90 Present           Present                     
+		    Present),           // High     65 to 90 Present           Absent                      
+		   (Present,            // High     65 to 90 Absent            Present                     
+		    Absent))),          // High     65 to 90 Absent            Absent                      
+		 (((Present,            // Low      30 to 65 Present           Present                     
+		    Present),           // Low      30 to 65 Present           Absent                      
+		   (Absent,             // Low      30 to 65 Absent            Present                     
+		    Absent)),           // Low      30 to 65 Absent            Absent                      
+		  ((Present,            // Low      65 to 90 Present           Present                     
+		    Present),           // Low      65 to 90 Present           Absent                      
+		   (Present,            // Low      65 to 90 Absent            Present                     
+		    Absent))),          // Low      65 to 90 Absent            Absent                      
+		 (((Present,            // Medium   30 to 65 Present           Present                     
+		    Present),           // Medium   30 to 65 Present           Absent                      
+		   (Absent,             // Medium   30 to 65 Absent            Present                     
+		    Absent)),           // Medium   30 to 65 Absent            Absent                      
+		  ((Present,            // Medium   65 to 90 Present           Present                     
+		    Present),           // Medium   65 to 90 Present           Absent                      
+		   (Present,            // Medium   65 to 90 Absent            Present                     
+		    Absent))));         // Medium   65 to 90 Absent            Absent                      ;
+	whenchanged = 1510288784;
+	belief = (0.9021159, 0.09788408);
+	visual V1 {
+		center = (1026, 486);
+		height = 15;
+		link 3 {
+			path = ((1336, 232), (1060, 458));
+			};
+		};
+	};
+
+node Memory_Loss {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((1,           1e-18),        // Present     
+		  (0.25,        0.75));        // Absent      ;
+	whenchanged = 1510287936;
+	belief = (0.9265869, 0.07341307);
+	visual V1 {
+		center = (762, 876);
+		height = 33;
+		};
+	};
+
+node Visual_And_Spatial_Impairment {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((0.75,        0.25),         // Present     
+		  (0.75,        0.25));        // Absent      ;
+	whenchanged = 1510287933;
+	belief = (0.75, 0.25);
+	visual V1 {
+		center = (990, 954);
+		height = 32;
+		};
+	};
+
+node Confusion {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((0.78,        0.22),         // Present     
+		  (0.65,        0.35));        // Absent      ;
+	whenchanged = 1510287120;
+	belief = (0.7672751, 0.2327249);
+	visual V1 {
+		center = (1080, 810);
+		height = 29;
+		};
+	};
+
+node Problem_with_Speech {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((0.65,        0.35),         // Present     
+		  (0.25,        0.75));        // Absent      ;
+	whenchanged = 1510286968;
+	belief = (0.6108463, 0.3891536);
+	visual V1 {
+		center = (1242, 894);
+		height = 28;
+		};
+	};
+
+node Judgment_Lapse {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((0.7,         0.3),          // Present     
+		  (0.2,         0.8));         // Absent      ;
+	whenchanged = 1509070648;
+	belief = (0.651058, 0.348942);
+	visual V1 {
+		center = (1314, 786);
+		height = 27;
+		};
+	};
+
+node Mood_Swings {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Alzheimer_s);
+	probs = 
+		// Yes          No             // Alzheimer_s 
+		 ((0.72,        0.28),         // Present     
+		  (0.12,        0.88));        // Absent      ;
+	whenchanged = 1510287185;
+	belief = (0.6612695, 0.3387304);
+	visual V1 {
+		center = (1536, 822);
+		height = 25;
+		};
+	};
+
+node Donepezil {
+	kind = DECISION;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (Dose_high, Dose_medium, Dose_low);
+	parents = (Alzheimer_s);
+	functable = 
+		                    // Alzheimer_s 
+		  (Dose_high,       // Present     
+		   Dose_high);      // Absent      ;
+	whenchanged = 1510288432;
+	belief = (0, 1, 0);
+	visual V1 {
+		center = (576, 792);
+		height = 34;
+		};
+	};
+
+node Disease_progression {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (Late_stage, Early_stage);
+	parents = (Age, Alzheimer_s);
+	functable = 
+		                     // Age      Alzheimer_s 
+		 ((Early_stage,      // 30 to 65 Present     
+		   @undef),          // 30 to 65 Absent      
+		  (Late_stage,       // 65 to 90 Present     
+		   @undef));         // 65 to 90 Absent      ;
+	whenchanged = 1510288444;
+	belief = (0.786158, 0.2138421);
+	visual V1 {
+		center = (498, 642);
+		height = 31;
+		link 2 {
+			path = ((945, 510), (591, 615));
+			};
+		};
+	};
+
+node Depression {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Mood_Swings);
+	probs = 
+		// Yes          No             // Mood_Swings 
+		 ((0.72,        0.28),         // Yes         
+		  (0.2,         0.8));         // No          ;
+	whenchanged = 1510287108;
+	belief = (0.5438602, 0.4561398);
+	visual V1 {
+		center = (1446, 948);
+		height = 26;
+		};
+	};
+
+node Apathy {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Yes, No);
+	parents = (Mood_Swings);
+	probs = 
+		// Yes          No             // Mood_Swings 
+		 ((0.7,         0.3),          // Yes         
+		  (0.2,         0.8));         // No          ;
+	whenchanged = 1510287104;
+	belief = (0.5306348, 0.4693652);
+	visual V1 {
+		center = (1626, 942);
+		height = 24;
+		};
+	};
+
+node Health_Improves {
+	kind = UTILITY;
+	discrete = FALSE;
+	measure = RATIO;
+	chance = DETERMIN;
+	parents = (Donepezil, Disease_progression);
+	functable = 
+		                  // Donepezil   Disease_progression 
+		 ((15,            // Dose high   Late stage          
+		   100),          // Dose high   Early stage         
+		  (10,            // Dose medium Late stage          
+		   80),           // Dose medium Early stage         
+		  (0,             // Dose low    Late stage          
+		   50));          // Dose low    Early stage         ;
+	whenchanged = 1510288002;
+	visual V1 {
+		center = (288, 762);
+		height = 35;
+		};
+	};
+ElimOrder = (Memory_Loss, Visual_And_Spatial_Impairment, Confusion, Problem_with_Speech, Judgment_Lapse, Depression, Apathy, Mood_Swings, DDT, Glyphosate, Mild_Cognitive_Impairment, Cardiovascular_Disease, Traumatic_Brain_Injury, Disease_progression, Lead, Aluminum, Flouride, Mercury, Contributing_Med_Conditions, APP, Presenelin_1, Presenelin_2, APOE_e4, First_Degree_Relative, Genetic_Mutations, Age, Pesticides, Aspartame, Diacetyl, Advanced_Glycation_End_Product, Heavy_Metals, Exposure, Donepezil, Alzheimer_s);
+};
